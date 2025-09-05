@@ -11,7 +11,7 @@ namespace elsoora
         static void Main(string[] args)
         {
             Szemely tanulo = new Szemely("Bence",2);
-            Console.WriteLine(tanulo.nev);
+            Console.WriteLine(tanulo);
         }
     }
 
@@ -37,6 +37,10 @@ namespace elsoora
         {
             this.nev = nev;
             this.kor = kor;
+        }
+
+        public override string ToString() {
+            return $"Neve: {nev}, kora: {kor}";
         }
     }
 
