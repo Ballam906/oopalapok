@@ -21,7 +21,11 @@ namespace elsoora
         public string nev = "Kiss Péter";
         public int kor = 35;
 
-
+        public Szemely(string nev, int kor)
+        {
+            this.nev = nev;
+            this.kor = kor;
+        }
     }
 
 }
