@@ -10,16 +10,28 @@ namespace elsoora
     {
         static void Main(string[] args)
         {
-            Szemely tanulo = new Szemely();
+            Szemely tanulo = new Szemely("Bence",2);
             Console.WriteLine(tanulo.nev);
-            Console.WriteLine(tanulo.kor);
         }
     }
 
      class Szemely
     {
-        public string nev = "Kiss Péter";
-        public int kor = 35;
+        public string nev;
+        private int kor;
+
+        public int Kor
+        {
+            get { return kor; }
+            set {
+                if (value < 0)
+                {
+                    throw new ArgumentException("Az életkor negatív");
+                }
+                kor = value;
+            }
+        }
+
 
         public Szemely(string nev, int kor)
         {
