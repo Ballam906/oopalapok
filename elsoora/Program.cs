@@ -17,8 +17,26 @@ namespace elsoora
 
     class Hallgato : Szemely
     {
-        public int neptunKod;
-        public Hallgato(string nev, int kor, int neptunKod) : base(nev, kor)
+        public string neptunKod;
+
+        public string NeptunKod
+        {
+            get { return neptunKod; }
+            set
+            {
+                if (neptunKod.Length < 6)
+                {
+                    neptunKod = value;
+                }
+                else
+                {
+                    Console.WriteLine("A neptunkód maximum 6 karakter lehet.");
+                }
+            }
+
+        }
+
+        public Hallgato(string nev, int kor, string neptunKod) : base(nev, kor)
         {
             this.neptunKod = neptunKod;
         }
