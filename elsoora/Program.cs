@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,20 +12,36 @@ namespace elsoora
     {
         static void Main(string[] args)
         {
-            Hallgato tanulo1 = new Hallgato("Gábor", 22, "HEKO45");
-            Hallgato tanulo2 = new Hallgato("Gergő", 37, "AJEF12");
-            Hallgato tanulo3 = new Hallgato("Dávid", 55, "WOPD53");
-            List<Hallgato> hallgatok = new List<Hallgato>();
-            hallgatok.Add(tanulo1);
-            hallgatok.Add(tanulo2);
-            hallgatok.Add(tanulo3);
-            Console.WriteLine("Hallgatók:");
-            foreach (Hallgato h in hallgatok)
+            List<Szemely> emberek = new List<Szemely>();
+
+            emberek.Add(new Hallgato("Anna",32, "AB123C"));
+            emberek.Add(new Dolgozo("Péter",56, 500000));
+            emberek.Add(new Hallgato("Eszter",19, "XY456D"));
+            emberek.Add(new Dolgozo("Ádám",22, 650000));
+
+            foreach (var szemely in emberek)
             {
-                Console.WriteLine(h.Nev);
+                szemely.MutatJellemzot(); 
             }
         }
     }
+
+    class Dolgozo : Szemely
+    {
+        public int ber;
+
+
+        public Dolgozo(string nev, int kor, int ber) : base(nev, kor)
+        {
+            this.ber = ber;
+        }
+
+        public override void MutatJellemzot()
+        {
+            Console.WriteLine($"Dolgozó: {nev}, Bér: {ber} Ft");
+        }
+    }
+
 
     class Hallgato : Szemely
     {
@@ -54,6 +72,11 @@ namespace elsoora
         public Hallgato(string nev, int kor, string neptunKod) : base(nev, kor)
         {
             this.neptunKod = neptunKod;
+        }
+
+        public override void MutatJellemzot()
+        {
+            Console.WriteLine($"Hallgató: {nev}, Neptun kód: {neptunKod}");
         }
     }
 
@@ -118,6 +141,12 @@ namespace elsoora
         public override string ToString() {
             return $"Neve: {nev}, kora: {kor}";
         }
+        public virtual void MutatJellemzot()
+        {
+            Console.WriteLine($"Személy: {nev}");
+        }
+
+
     }
 
 }
