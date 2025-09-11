@@ -15,6 +15,15 @@ namespace elsoora
         }
     }
 
+    class Hallgato : Szemely
+    {
+        public int neptunKod;
+        public Hallgato(string nev, int kor, int neptunKod) : base(nev, kor)
+        {
+            this.neptunKod = neptunKod;
+        }
+    }
+
     class BankSzamla
     {
         public int egyenleg;
