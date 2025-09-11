@@ -15,7 +15,41 @@ namespace elsoora
         }
     }
 
-     class Szemely
+    class BankSzamla
+    {
+        public int egyenleg;
+
+        public void Betesz(int osszeg)
+        {
+            if (osszeg <= 0)
+            {
+                Console.WriteLine("Nem lehet negatív.");
+                return;
+            }
+
+            egyenleg += osszeg;
+        }
+
+        
+        public void Kivesz(int osszeg)
+        {
+            if (osszeg <= 0)
+            {
+                Console.WriteLine("Nem lehet minuszt kivenni");
+                return;
+            }
+
+            if (osszeg > egyenleg)
+            {
+                Console.WriteLine("Nincs elég pénz");
+                return;
+            }
+
+            egyenleg -= osszeg;
+        }
+    }
+
+    class Szemely
     {
         public string nev;
         private int kor;
