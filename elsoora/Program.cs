@@ -60,7 +60,7 @@ namespace elsoora
 
     class Szemely
     {
-        public string nev;
+        protected string nev;
         private int kor;
 
         public int Kor
