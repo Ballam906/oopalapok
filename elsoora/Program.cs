@@ -10,8 +10,18 @@ namespace elsoora
     {
         static void Main(string[] args)
         {
-            Szemely tanulo = new Szemely("Bence",2);
-            Console.WriteLine(tanulo);
+            Hallgato tanulo1 = new Hallgato("Gábor", 22, "HEKO45");
+            Hallgato tanulo2 = new Hallgato("Gergő", 37, "AJEF12");
+            Hallgato tanulo3 = new Hallgato("Dávid", 55, "WOPD53");
+            List<Hallgato> hallgatok = new List<Hallgato>();
+            hallgatok.Add(tanulo1);
+            hallgatok.Add(tanulo2);
+            hallgatok.Add(tanulo3);
+            Console.WriteLine("Hallgatók:");
+            foreach (Hallgato h in hallgatok)
+            {
+                Console.WriteLine(h.Nev);
+            }
         }
     }
 
@@ -34,6 +44,11 @@ namespace elsoora
                 }
             }
 
+        }
+
+        public string Nev
+        {
+            get { return nev; }
         }
 
         public Hallgato(string nev, int kor, string neptunKod) : base(nev, kor)
